@@ -1,0 +1,22 @@
+data:
+  samples: 240
+  features: 16
+  targets: 3
+  groups: 24
+  noise: 0.25
+  seed: 7
+
+split:
+  train: 0.60
+  validation_working: 0.15
+  validation_holdout: 0.15
+  sealed_test: 0.10
+  seed: 13
+
+workflow:
+  model: ridge
+  alpha: 1.0
+  seed: 101
+
+validation:
+  gap_threshold: 0.20

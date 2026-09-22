@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vericell-iclr"
+version = "1.0.0"
+description = "Anonymous offline reference implementation of a certified regression workflow"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "scikit-learn>=1.2", "pyyaml>=6.0"]
+
+[tool.setuptools.packages.find]
+include = ["vericell*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
