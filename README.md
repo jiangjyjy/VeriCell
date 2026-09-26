@@ -5,7 +5,7 @@
 
 VeriCell is a framework for protocol-certified workflow search in cellular perturbation-response prediction. It integrates protocol contracts, static certification, runtime monitoring, audited validation, and semantic verification into a unified workflow-search pipeline.
 
-The repository contains the VeriCell pipeline, an optional OpenAI-compatible LLM interface, experiment configurations, evaluation utilities, and the results reported in the paper.
+This repository contains the VeriCell pipeline, an optional OpenAI-compatible LLM interface, experiment configurations, evaluation utilities, and results reported in the paper.
 
 ## Framework
 
@@ -15,7 +15,7 @@ VeriCell follows a unified workflow:
 2. **Workflow Proposal:** Generate candidate workflows using an LLM provider.
 3. **Static Certification:** Check candidate workflows against protocol invariants.
 4. **Runtime Monitoring:** Enforce protocol constraints during execution.
-5. **Audited Validation:** Evaluate eligible candidates under a controlled validation policy.
+5. **Audited Validation:** Evaluate candidates under a controlled validation policy.
 6. **Semantic Verification:** Verify the correspondence between evaluation results and reported evidence.
 7. **Certified Selection:** Admit certified candidates, select a workflow, and perform final evaluation.
 
@@ -90,16 +90,16 @@ Experiment configurations are organized in `configs/paper/`. The `results/` dire
 
 | Table | Experiment | Result file |
 |---|---|---|
-| 1 | BBBC021 morphology prediction | `table1.csv` |
-| 2 | LINCS L1000 perturbation prediction | `table2.csv` |
-| 3 | Protocol violation auditing | `table3.csv` |
-| 4 | Protocol contracts and invariants | `table4.md` |
-| 5 | Verifier precision and recall | `table5.csv` |
-| 6 | Audited adaptive validation | `table6.csv` |
-| 7 | Violation-to-invariant mapping | `table7.md` |
-| 8 | Certification-stage ablation | `table8.csv` |
-| 9 | Backbone robustness | `table9.csv` |
-| 10 | Full morphology benchmark results | `table10.csv` |
+| 1 | BBBC021 morphology prediction | `results/table1.csv` |
+| 2 | LINCS L1000 perturbation prediction | `results/table2.csv` |
+| 3 | Protocol violation auditing | `results/table3.csv` |
+| 4 | Protocol contracts and invariants | `results/table4.md` |
+| 5 | Verifier precision and recall | `results/table5.csv` |
+| 6 | Audited adaptive validation | `results/table6.csv` |
+| 7 | Violation-to-invariant mapping | `results/table7.md` |
+| 8 | Certification-stage ablation | `results/table8.csv` |
+| 9 | Backbone robustness | `results/table9.csv` |
+| 10 | Full morphology benchmark results | `results/table10.csv` |
 
 The result files preserve the manuscript-reported values. Their schemas and integrity can be checked using:
 
