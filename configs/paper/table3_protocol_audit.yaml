@@ -1,0 +1,5 @@
+experiment: table3_protocol_audit
+status: manuscript_aligned_configuration
+categories: 9
+scoring: violation_rate_over_observable_applicable_cases
+provider_calls_in_offline_mode: 0

@@ -1,0 +1,5 @@
+experiment: table4_protocol_contract
+status: manuscript_aligned_configuration
+contract_source: protocol_reference
+fail_closed: true
+unknown_evidence_is_not_imputed: true

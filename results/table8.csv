@@ -1,0 +1,6 @@
+configuration,violation_rate,certification_recall,test_pcc,time_seconds
+Base refinement loop,1.000,0.000,0.527 ± 0.021,151.2 ± 12.2
+Plus Static typing,0.534,0.358,0.529 ± 0.022,112.3 ± 11.8
+Plus Dynamic monitoring,0.352,0.583,0.521 ± 0.011,120.9 ± 10.3
+Plus Audited validation,0.266,0.697,0.542 ± 0.020,105.7 ± 7.5
+Plus Semantic check (full),0.028,0.961,0.551 ± 0.016,99.6 ± 4.5

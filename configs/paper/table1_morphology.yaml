@@ -1,0 +1,6 @@
+experiment: table1_morphology
+status: manuscript_aligned_configuration
+datasets: [BBBC021]
+split_families: [chemical, plate]
+primary_metrics: [MSE, PCC, R2]
+artifact_policy: predictions_and_frozen_split_required_for_replay

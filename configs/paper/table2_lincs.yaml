@@ -1,0 +1,5 @@
+experiment: table2_lincs
+status: manuscript_aligned_configuration
+dataset: LINCS_L1000
+primary_metric: PCC
+artifact_policy: manuscript_table_only_in_public_release

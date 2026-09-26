@@ -1,0 +1,5 @@
+refinement_scheme,val_pcc,test_pcc,gap,certified_bound_tau
+Unaudited refinement,0.575 ± 0.268,0.495 ± 0.273,0.080 ± 0.057,NA
+Naive validation reuse,0.635 ± 0.241,0.515 ± 0.258,0.120 ± 0.067,NA
+Reusable holdout,0.557 ± 0.256,0.533 ± 0.264,0.025 ± 0.030,NA
+VeriCell (audited),0.541 ± 0.281,0.525 ± 0.278,0.016 ± 0.023,0.192

@@ -1,0 +1,6 @@
+dataset,task,split_families,raw_data_bundled,access_status,required_for_full_rerun,notes
+BBBC021,cell-painting morphology,SMILES-exclusive;plate-exclusive,false,EXTERNAL_DATASET_NOT_BUNDLED,true,Exact release and split manifest must be bound before rerun
+BBBC036,cell-painting morphology,SMILES-exclusive;plate-exclusive,false,EXTERNAL_DATASET_NOT_BUNDLED,true,Exact release and split manifest must be bound before rerun
+BBBC047,cell-painting morphology,SMILES-exclusive;plate-exclusive,false,EXTERNAL_DATASET_NOT_BUNDLED,true,Exact release and split manifest must be bound before rerun
+CPG0016,cell-painting morphology,SMILES-exclusive;plate-exclusive,false,EXTERNAL_DATASET_NOT_BUNDLED,true,Exact JUMP/Cell Painting release and split manifest must be bound before rerun
+LINCS L1000,transcriptomic perturbation prediction,chemical-blind;common-support,false,EXTERNAL_DATASET_NOT_BUNDLED,true,Exact canonical profile release and population filters must be bound before rerun

@@ -1,68 +1,132 @@
-# Vericell
+
+# VeriCell
 
 ## Protocol-Certified Workflow Search for Cellular Perturbation-Response Prediction
 
-Vericell is a protocol-aware framework for selecting and evaluating predictive
-workflows for cellular perturbation-response data. The implementation makes
-the experimental protocol explicit and records the evidence needed to audit a
-final model evaluation.
+VeriCell is a framework for protocol-certified workflow search in cellular perturbation-response prediction. It integrates protocol contracts, static certification, runtime monitoring, audited validation, and semantic verification into a unified workflow-search pipeline.
 
-The reference pipeline provides deterministic data construction, fixed
-train/working-validation/holdout/sealed-test partitions, train-only
-preprocessing, validation-based workflow certification, and a single final
-evaluation on the sealed test partition. Each run emits machine-readable
-metrics and a certificate describing the checks that were applied.
+The repository contains the VeriCell pipeline, an optional OpenAI-compatible LLM interface, experiment configurations, evaluation utilities, and the results reported in the paper.
 
-## Protocol guarantees
+## Framework
 
-- Partition membership is generated deterministically from a recorded seed.
-- Preprocessing is fitted on the training partition only.
-- The sealed test partition is excluded from workflow selection.
-- Validation behavior and target/metadata isolation are checked explicitly.
-- The selected workflow is evaluated on the sealed test partition once.
-- Configuration, metrics, and certification decisions are written as JSON.
+VeriCell follows a unified workflow:
 
-## Repository structure
+1. **Protocol Contract:** Define task-specific data, model, evaluation, and statistical constraints.
+2. **Workflow Proposal:** Generate candidate workflows using an LLM provider.
+3. **Static Certification:** Check candidate workflows against protocol invariants.
+4. **Runtime Monitoring:** Enforce protocol constraints during execution.
+5. **Audited Validation:** Evaluate eligible candidates under a controlled validation policy.
+6. **Semantic Verification:** Verify the correspondence between evaluation results and reported evidence.
+7. **Certified Selection:** Admit certified candidates, select a workflow, and perform final evaluation.
+
+The pipeline supports structured violation feedback and bounded candidate repair.
+
+## Repository Structure
 
 ```text
-vericell/
-  data.py       deterministic data contract and fixture construction
-  splits.py     fixed partition construction and validation
-  workflows.py  train-only preprocessing and workflow execution
-  certify.py    protocol checks and validation-gap certification
-  metrics.py    regression metrics
-  runner.py     end-to-end execution and certificate generation
-run_demo.py     command-line entry point
-configs/        reproducible default configuration
-tests/          local regression and smoke tests
+vericell/                 Core VeriCell pipeline
+configs/
+  default.yaml            Default offline configuration
+  paper/                  Experiment configurations
+scripts/
+  run_pipeline.py         Pipeline execution
+  replay_results.py       Result-table verification
+results/                  Manuscript results
+data/                     Dataset information
+docs/reproduction.md      Reproduction and environment details
+tests/                    Unit and integration tests
+run_demo.py               Lightweight offline demonstration
 ```
 
 ## Installation
 
+Python 3.10 or newer is required.
+
 ```bash
-python -m venv .venv
-. .venv/bin/activate
 python -m pip install -e .
 ```
 
-## Running the reference pipeline
+## Quick Start
+
+Run VeriCell using the deterministic offline provider:
 
 ```bash
-python run_demo.py --config configs/default.yaml --output outputs/demo
+python scripts/run_pipeline.py \
+    --mode offline \
+    --config configs/default.yaml \
+    --output outputs/pipeline
 ```
 
-The command writes `splits.json`, `run_summary.json`, and `certificate.json`
-under the requested output directory. Output directories are excluded from
-version control by default.
+The offline example exercises candidate generation, protocol certification, violation feedback, candidate repair, and final evaluation.
 
-## Verification
+Execution records and certification results are saved to the specified output directory.
+
+## LLM Provider
+
+VeriCell includes an optional OpenAI-compatible interface for connecting external LLM providers.
+
+Configure the provider through environment variables:
+
+```bash
+export VERICELL_LLM_BASE_URL="https://your-provider.example/v1"
+export VERICELL_LLM_MODEL="your-model-id"
+export VERICELL_LLM_API_KEY="your-api-key"
+```
+
+Run with the configured provider:
+
+```bash
+python scripts/run_pipeline.py \
+    --mode live \
+    --config configs/default.yaml \
+    --output outputs/live
+```
+
+The default offline mode requires no external LLM service.
+
+## Experiments and Results
+
+Experiment configurations are organized in `configs/paper/`. The `results/` directory contains the tables reported in the manuscript.
+
+| Table | Experiment | Result file |
+|---|---|---|
+| 1 | BBBC021 morphology prediction | `table1.csv` |
+| 2 | LINCS L1000 perturbation prediction | `table2.csv` |
+| 3 | Protocol violation auditing | `table3.csv` |
+| 4 | Protocol contracts and invariants | `table4.md` |
+| 5 | Verifier precision and recall | `table5.csv` |
+| 6 | Audited adaptive validation | `table6.csv` |
+| 7 | Violation-to-invariant mapping | `table7.md` |
+| 8 | Certification-stage ablation | `table8.csv` |
+| 9 | Backbone robustness | `table9.csv` |
+| 10 | Full morphology benchmark results | `table10.csv` |
+
+The result files preserve the manuscript-reported values. Their schemas and integrity can be checked using:
+
+```bash
+python scripts/replay_results.py --all
+```
+
+## Datasets
+
+The experiments use publicly available cellular perturbation datasets:
+
+- BBBC021
+- BBBC036
+- BBBC047
+- CPG0016
+- LINCS L1000
+
+Dataset information and preparation instructions are provided in `data/README.md`.
+
+## Tests
+
+Run the test suite:
 
 ```bash
 python -m pytest -q
 ```
 
-The default configuration uses a deterministic synthetic regression fixture so
-that the protocol and certification logic can be exercised without external
-data. Dataset-specific adapters can be integrated through the same data,
-split, workflow, and certificate interfaces while preserving the protocol
-checks above.
+The tests cover protocol checks, candidate admission and repair, provider response parsing, and offline pipeline execution.
+
+For additional configuration and execution details, see `docs/reproduction.md`.

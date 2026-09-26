@@ -20,3 +20,5 @@ workflow:
 
 validation:
   gap_threshold: 0.20
+  working_budget: 20
+  repair_budget: 1

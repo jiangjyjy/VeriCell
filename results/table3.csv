@@ -1,0 +1,7 @@
+workflow,split_leakage,preprocessing_leakage,metric_drift,target_perturbation_leakage,batch_shortcut,adaptive_overfitting,statistical_misuse,provenance_loss,biological_invalidity,overall
+Vanilla GPT agent,0.375,0.315,0.115,0.365,0.295,0.330,0.135,0.175,0.160,0.2517
+Vanilla Claude agent,0.335,0.275,0.105,0.305,0.260,0.300,0.120,0.160,0.145,0.2228
+Vanilla Gemini agent,0.355,0.305,0.125,0.345,0.285,0.320,0.135,0.175,0.155,0.2444
+AutoML agent (FLAML),0.275,0.175,0.050,0.225,0.275,0.300,0.050,0.100,0.075,0.1694
+VeriCell (no guard),0.335,0.305,0.125,0.405,0.365,0.420,0.180,0.220,0.145,0.2778
+VeriCell,0.000,0.010,0.010,0.000,0.005,0.015,0.010,0.015,0.000,0.0072

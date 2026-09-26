@@ -1,0 +1,3 @@
+experiment: table9_backbone_robustness
+status: manuscript_aligned_configuration
+artifact_policy: manuscript_table_only_in_public_release

@@ -1,0 +1,4 @@
+experiment: table5_verifier_precision_recall
+status: manuscript_aligned_configuration
+metrics: [precision, recall]
+artifact_policy: manuscript_table_only_in_public_release

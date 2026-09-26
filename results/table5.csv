@@ -1,0 +1,10 @@
+violation_category,single_stage_precision,single_stage_recall,combined_precision,combined_recall
+Preprocessing leakage,0.931,0.900,0.983,0.967
+Target and perturbation leakage,0.919,0.950,0.967,0.983
+Batch shortcut,0.903,0.933,0.966,0.950
+Split leakage,0.949,0.933,0.967,0.983
+Metric drift,0.921,0.967,0.967,0.983
+Adaptive overfitting,0.932,0.917,0.983,0.967
+Statistical misuse,NA,NA,0.949,0.933
+Provenance loss,NA,NA,1.000,0.983
+Biological invalidity,NA,NA,0.966,0.950

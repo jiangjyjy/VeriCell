@@ -1,0 +1,4 @@
+experiment: table6_audited_validation
+status: manuscript_aligned_configuration
+schemes: [UNAUDITED_REFINEMENT, NAIVE_VALIDATION_REUSE, REUSABLE_HOLDOUT, VERICELL_AUDITED]
+primary_metric: TRAIN_STANDARDIZED_GLOBAL_PCC

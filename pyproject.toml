@@ -3,11 +3,12 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "vericell-iclr"
-version = "1.0.0"
-description = "Anonymous offline reference implementation of a certified regression workflow"
+name = "vericell"
+version = "1.2.0"
+description = "Protocol-certified workflow search for cellular perturbation-response prediction"
 requires-python = ">=3.10"
-dependencies = ["numpy>=1.24", "scikit-learn>=1.2", "pyyaml>=6.0"]
+dependencies = ["numpy>=1.24,<3", "scikit-learn>=1.2,<2", "pyyaml>=6.0,<7"]
+license = {file = "LICENSE"}
 
 [tool.setuptools.packages.find]
 include = ["vericell*"]
